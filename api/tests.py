@@ -2,7 +2,6 @@ from django.test import TestCase
 from rest_framework.test import APITestCase
 from rest_framework import status
 
-
 class TodoTest(APITestCase):
 
     def create_todo(self):
@@ -34,3 +33,4 @@ class TodoTest(APITestCase):
 
         response = self.client.delete('/api/tasks/1')
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        
