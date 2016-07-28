@@ -1,3 +1,3 @@
-# Simple-todo
+# Simple-Todo
 
 Simple todo application
