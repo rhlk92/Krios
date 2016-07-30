@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from task.models import Task
 from .serializers import TaskSerializer
 
+
 @api_view(['GET', 'POST'])
 def task_list_api(request):
     """
@@ -20,7 +21,9 @@ def task_list_api(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def task_detail_api(request, pk):
@@ -42,7 +45,8 @@ def task_detail_api(request, pk):
             serializer.save()
             return Response(serializer.data)
         else:
-            return Response(serilizer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return Response(serilizer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
         task.delete()
